@@ -6,6 +6,8 @@ root = tk.Tk()
 root.title("System App Manager")
 root.wm_iconbitmap("logo.ico")
 
+global bgColor
+bgColor = "#142952"
 apps = []
 
 if os.path.isfile('yourApps.txt'):
@@ -21,7 +23,7 @@ if os.path.isfile('yourApps.txt'):
 
 def loadUI():
     for app in apps:
-        label = tk.Label(frame, text=app, bg="grey")
+        label = tk.Label(frame, text=app, bg="#c2d1f0")
         label.pack()
 
 # Function for selecting applications
@@ -50,24 +52,24 @@ def runApp():
 
 
 #========== Main App Canvas ==========#
-canvas = tk.Canvas(root, height=700, width=700, bg="#263D42")
+canvas = tk.Canvas(root, height=500, width=800, bg=bgColor)
 canvas.pack()
 
 #========== Center Frame ==========#
 frame = tk.Frame(root, bg="white")
-frame.place(relwidth=0.8, relheight=0.8, relx=0.1, rely=0.1)
+frame.place(relwidth=0.8, relheight=0.7, relx=0.1, rely=0.12)
 
 #========== Buttons ==========#
 
 # Button for selecting apps
 selectButton = tk.Button(root, text="Select Apps", padx=10,
-                         pady=5, fg="white", bg="#263D42", command=selectApp)
-selectButton.pack()
+                         pady=5, fg="white", bg=bgColor, command=selectApp)
+selectButton.pack(side=tk.RIGHT)
 
 # Button for running apps
 runButton = tk.Button(root, text="Run Apps", padx=10,
-                      pady=5, fg="white", bg="#263D42", command=runApp)
-runButton.pack()
+                      pady=5, fg="white", bg=bgColor, command=runApp)
+runButton.pack(side=tk.RIGHT)
 
 loadUI()
 
