@@ -10,11 +10,11 @@ apps = []
 
 def selectApp():
 
-    for widget in frame.winfo_children():
-        widget.destroy()
-
     filename = filedialog.askopenfilename(initialdir='C:', title='Select Application',
                                           filetypes=(("executables", "*.exe"), ("all files", "*.*")))
+
+    for widget in frame.winfo_children():
+        widget.destroy()
 
     apps.append(filename)
     print(filename)
