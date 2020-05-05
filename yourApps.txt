@@ -1,2 +1,1 @@
-C:/Program Files/Adobe/Adobe Illustrator CC 2019/Support Files/Contents/Windows/Illustrator.exe
-C:/Program Files/Git/git-bash.exe
+C:/Program Files/Adobe/Adobe Illustrator CC 2019/Support Files/Contents/Windows/Illustrator.exe,C:/Program Files/Git/git-bash.exe,
