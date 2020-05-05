@@ -5,7 +5,9 @@ import os
 root = tk.Tk()
 apps = []
 
-# Functions for buttons
+#========== Functions for buttons ==========#
+
+# Function for selecting applications
 
 
 def selectApp():
@@ -22,14 +24,25 @@ def selectApp():
         label = tk.Label(frame, text=app, bg="grey")
         label.pack()
 
+# Funciton for running application
 
-# Main App Canvas
+
+def runApp():
+    for app in apps:
+        os.startfile(app)
+
+#========== ./Functions for buttons ==========#
+
+
+#========== Main App Canvas ==========#
 canvas = tk.Canvas(root, height=700, width=700, bg="#263D42")
 canvas.pack()
 
-# Center Frame
+#========== Center Frame ==========#
 frame = tk.Frame(root, bg="white")
 frame.place(relwidth=0.8, relheight=0.8, relx=0.1, rely=0.1)
+
+#========== Buttons ==========#
 
 # Button for selecting apps
 selectButton = tk.Button(root, text="Select Apps", padx=10,
@@ -38,7 +51,7 @@ selectButton.pack()
 
 # Button for running apps
 runButton = tk.Button(root, text="Run Apps", padx=10,
-                      pady=5, fg="white", bg="#263D42")
+                      pady=5, fg="white", bg="#263D42", command=runApp)
 runButton.pack()
 
 
