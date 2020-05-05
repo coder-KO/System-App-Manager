@@ -1,4 +1,4 @@
-# <img src="https://github.com/coder-KO/System-App-Manager/blob/master/logo.png" width="30"> System-App-Manager
+# <img src="https://github.com/coder-KO/System-App-Manager/blob/master/logo.png" width="25"> System-App-Manager
 A python application that make opening all your routine system apps a breeze.
 
 ## Steps for using System App Manager
