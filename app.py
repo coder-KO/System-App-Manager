@@ -56,3 +56,7 @@ runButton.pack()
 
 
 root.mainloop()
+
+with open('yourApps.txt', 'w') as f:
+    for app in apps:
+        f.write(app + '\n')
