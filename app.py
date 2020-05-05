@@ -3,6 +3,9 @@ from tkinter import filedialog, Text
 import os
 
 root = tk.Tk()
+root.title("System App Manager")
+root.wm_iconbitmap("logo.ico")
+
 apps = []
 
 if os.path.isfile('yourApps.txt'):
