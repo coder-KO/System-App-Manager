@@ -57,6 +57,15 @@ def deleteApp():
 
     loadUI()
 
+# Function for clearing application list
+
+
+def clearList():
+    apps.clear()
+    listBox.delete(0, "end")
+
+    loadUI()
+
 #========== ./Functions for buttons ==========#
 
 
@@ -64,11 +73,18 @@ def deleteApp():
 canvas = tk.Canvas(root, height=500, width=800, bg=bgColor)
 canvas.pack()
 
+
 #========== Center Frame ==========#
 listBox = tk.Listbox(root, bg="white")
 listBox.place(relwidth=0.8, relheight=0.7, relx=0.1, rely=0.12)
 
+
 #========== Buttons ==========#
+
+# Button for clearing apps list
+clearListButton = tk.Button(root, text="Clear List", padx=10,
+                            pady=5, fg="white", bg=bgColor, command=deleteApp)
+clearListButton.pack(side=tk.RIGHT)
 
 # Button for deleting apps
 deleteButton = tk.Button(root, text="Delete App", padx=10,
