@@ -51,9 +51,9 @@ def runApp():
 
 def deleteApp():
     app = listBox.get("active")
-    listBox.delete(0, "end")
     if app in apps:
         apps.remove(app)
+        listBox.delete(0, "end")
 
     loadUI()
 
@@ -83,7 +83,7 @@ listBox.place(relwidth=0.8, relheight=0.7, relx=0.1, rely=0.12)
 
 # Button for clearing apps list
 clearListButton = tk.Button(root, text="Clear List", padx=10,
-                            pady=5, fg="white", bg=bgColor, command=deleteApp)
+                            pady=5, fg="white", bg=bgColor, command=clearList)
 clearListButton.pack(side=tk.RIGHT)
 
 # Button for deleting apps
