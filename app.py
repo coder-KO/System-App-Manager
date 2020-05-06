@@ -23,8 +23,7 @@ if os.path.isfile('yourApps.txt'):
 
 def loadUI():
     for app in apps:
-        label = tk.Label(frame, text=app, bg="#c2d1f0")
-        label.pack()
+        listBox.insert("end", app)
 
 # Function for selecting applications
 
@@ -34,8 +33,7 @@ def selectApp():
     filename = filedialog.askopenfilename(initialdir='C:', title='Select Application',
                                           filetypes=(("executables", "*.exe"), ("all files", "*.*")))
 
-    for widget in frame.winfo_children():
-        widget.destroy()
+    listBox.delete(0, "end")
 
     apps.append(filename)
     loadUI()
@@ -48,6 +46,17 @@ def runApp():
     for app in apps:
         os.startfile(app)
 
+
+# Function for deleting an application
+
+def deleteApp():
+    app = listBox.get("active")
+    listBox.delete(0, "end")
+    if app in apps:
+        apps.remove(app)
+
+    loadUI()
+
 #========== ./Functions for buttons ==========#
 
 
@@ -56,10 +65,15 @@ canvas = tk.Canvas(root, height=500, width=800, bg=bgColor)
 canvas.pack()
 
 #========== Center Frame ==========#
-frame = tk.Frame(root, bg="white")
-frame.place(relwidth=0.8, relheight=0.7, relx=0.1, rely=0.12)
+listBox = tk.Listbox(root, bg="white")
+listBox.place(relwidth=0.8, relheight=0.7, relx=0.1, rely=0.12)
 
 #========== Buttons ==========#
+
+# Button for deleting apps
+deleteButton = tk.Button(root, text="Delete App", padx=10,
+                         pady=5, fg="white", bg=bgColor, command=deleteApp)
+deleteButton.pack(side=tk.RIGHT)
 
 # Button for selecting apps
 selectButton = tk.Button(root, text="Select Apps", padx=10,
@@ -70,6 +84,7 @@ selectButton.pack(side=tk.RIGHT)
 runButton = tk.Button(root, text="Run Apps", padx=10,
                       pady=5, fg="white", bg=bgColor, command=runApp)
 runButton.pack(side=tk.RIGHT)
+
 
 loadUI()
 
